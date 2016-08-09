@@ -2,18 +2,18 @@
 
 ### 需求列表
 
-* ~~[导航栏](#nav)~~
-* [列表\/图标](#listico)
-* [树](#tree)
-* [~~统计图表~~](#chart)
-* [~~消息，自动更新消息数量~~](#messages)
-* [弹出菜单](#menu)
-* [~~自动提示框，不需要交互响应~~](#toast)
-* [弹出窗口浏览](#modal)
-* [大文件批量上传](#uploader)
-* [收发邮件，富文本编辑器](#rtf-editor)
+* ~~导航栏~~
+* 列表/图标
+* 树
+* ~~统计图表~~
+* ~~消息，自动更新消息数量~~
+* 弹出菜单
+* ~~自动提示框，不需要交互响应~~
+* ~~弹出窗口浏览~~
+* ~~大文件批量上传~~
+* 收发邮件，富文本编辑器
 
-### 导航栏 {#nav}
+### 导航栏
 
 方案：Bootstrap
 
@@ -31,19 +31,19 @@
 效果：
 ![导航栏](./assets/nav.PNG)
 
-### 列表\/图标 {#listico}
+### 列表/图标
 
 方案：
 
 效果：
 
-### 树 {#tree}
+### 树
 
 方案：
 
 效果：
 
-### 统计图表 {#chart}
+### 统计图表
 
 方案：[Highcharts](http://www.hcharts.cn/api/index.php)
 
@@ -90,9 +90,9 @@ var chart = new Highcharts.Chart({
 
 效果：
 
-![统计图表](/assets/chart.PNG)
+![统计图表](./assets/chart.PNG)
 
-### 消息 {#messages}
+### 消息
 
 方案：bootstrap &gt; badge
 
@@ -100,15 +100,15 @@ var chart = new Highcharts.Chart({
 <a class="message">消息 <span class="badge">5</span></a>
 ```
 
-效果：![消息](/assets/messages.PNG)
+效果：![消息](./assets/messages.PNG)
 
-### 弹出菜单 {#menu}
+### 弹出菜单
 
 方案：
 
 效果：
 
-### 提示框 {#toast}
+### 提示框
 
 方案：[Toastr](https://github.com/CodeSeven/toastr)
 
@@ -134,21 +134,21 @@ toastr.clear()
 
 效果：
 
-![提示框](/assets/toastr.PNG)
+![提示框](./assets/toastr.PNG)
 
-### 浮动窗口浏览 {#modal}
+### 浮动窗口浏览
 
 方案：bootstrap &gt; modal
 
 效果：
 
-### 文件批量上传 {#uploader}
+### 文件批量上传
 
 方案：[Stream上传插件](http://www.twinkling.cn/)
 
 效果：
 
-### 富文本编辑器 {#rtf-editor}
+### 富文本编辑器 
 
 方案：[UEditor](http://fex.baidu.com/ueditor/)
 
