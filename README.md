@@ -320,7 +320,80 @@ toastr.clear()
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 富文本编辑器 
 
-方案：[UEditor](http://fex.baidu.com/ueditor/)
+方案：[LineControl Editor](https://github.com/suyati/line-control)
+
+```javascript
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="editor.css" type="text/css" rel="stylesheet"/>
+<script src="editor.js"></script>  
+```
+设置富文本编辑器的容器：
+```javascript
+<div id="rtf-editor"></div>
+```
+初始化富文本编辑器：
+```javascript
+$("#rtf-editor").Editor();
+```
+初始化插件的时候添加一些配置参数：
+```javascript
+editor('createMenuItem', {
+  "text": "TouchGlasses", //Text replaces icon if its not available
+  "icon":"fa fa-glass", //This is a Font-Awesome Icon 
+  "tooltip": "Touch Glasses",
+  "custom": function(button, parameters){ 
+    //Your Custom Function.
+    alert("Cheers!!!");
+  },
+  "params": {'option1':"value1"} //Any custom parameters you want to pass
+                                //to your custom function.
+ });
+```
+编辑器的默认配置：
+```javascript
+'texteffects':true,
+'aligneffects':true,
+'textformats':true,
+'fonteffects':true,
+'actions' : true,
+'insertoptions' : true,
+'extraeffects' : true,
+'advancedoptions' : true,
+'screeneffects':true,
+'bold': true,
+'italics': true,
+'underline':true,
+'ol':true,
+'ul':true,
+'undo':true,
+'redo':true,
+'l_align':true,
+'r_align':true,
+'c_align':true,
+'justify':true,
+'insert_link':true,
+'unlink':true,
+'insert_img':true,
+'hr_line':true,
+'block_quote':true,
+'source':true,
+'strikeout':true,
+'indent':true,
+'outdent':true,
+'fonts':fonts,
+'styles':styles,
+'print':true,
+'rm_format':true,
+'status_bar':true,
+'font_size':fontsizes,
+'color':colors,
+'splchars':specialchars,
+'insert_table':true,
+'select_all':true,
+'togglescreen':true
+```
 
 效果：
+
+![富文本编辑器](./assets/editor.PNG)
 

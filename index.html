@@ -7,14 +7,13 @@
     <title>Hello Components!</title>
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://libs.useso.com/js/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
-    <!-- 用于list-grid中的图标，与bootstrap有些冲突 -->
-    <!--<link href="./css/icons.css" rel="stylesheet">-->
-
+    <link href="./css/editor.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    
     <!--<link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest /toastr.min.css" rel="stylesheet">-->
-    <!-- 本地备用css资源 -->
+    <!-- 本地css资源 -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/toastr.min.css" rel="stylesheet">
-
     <link href="./css/stream-v1.css" rel="stylesheet">
     <link href="./css/main.css" rel="stylesheet">
 
@@ -36,22 +35,18 @@
     <!--右键上下文菜单-->
     <!--<script src="./js/jquery.contextify.min.js"></script>-->
     <script src="./js/BootstrapMenu.min.js"></script>
+    <!--富文本编辑器-->
+    <script src="./js/editor.js"></script>
     
     <script src="./js/main.js"></script>
 
     <style>
-        /*html{
-            font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
-        }
-        .frame .image:hover{
-            cursor: pointer;
-        }*/
+        
     </style>
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
-     style="box-shadow: 0 0px 10px rgba(0,0,0,.5);padding:0 20px 0 20px;">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
@@ -128,7 +123,6 @@
         <!--统计图表-->
         <div id="con" class="col-sm-12 col-xs-12"></div>
     </div>
-
     <div class="row">
         <div class="col-sm-3 col-xs-12"><br>
             <div class="btn-group">
@@ -182,15 +176,15 @@
                     <button class="btn btn-danger" onclick="javascript:_t.cancel();">取消</button>
                 </div><br><br>
             </div>
-            <main id='container' style="border: 1px solid #ccc;padding: 5px;">
+            <main id='container'>
                 <header id='header'>
-                    <span>视图:</span>
-                    <div class="btn-group">
+                    <label class="control-label" for="view-type" style="font-size: 1.5em;">视图:</span>
+                    <div class="btn-group" id="view-type">
                         <button class='view-grid btn btn-default active'><span class="glyphicon glyphicon-th"></span></button>
                         <button class='view-list btn btn-default'><span class="glyphicon glyphicon-th-list"></span></button>
                     </div>
                 </header>
-                <ol class='grid' id='frame' style="height: 500px;overflow:scroll;margin:5px">
+                <ol class='grid' id='frame'>
                     <li class='frame'>
                         <div class='inset'>
                             <div class='image'></div>
@@ -311,6 +305,12 @@
                     </li>
                 </ol>
             </main>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <!-- 加载编辑器的容器 -->
+            <div id="rtf-editor"></div>
         </div>
     </div>
 </div>
@@ -647,6 +647,7 @@
         $('.description').text('这里可以添加描述信息。');
     });
 </script>
+<!--上下文菜单-->
 <script>
     var menu = new BootstrapMenu('.frame', {
         actions: [{
@@ -666,6 +667,10 @@
             }
         }]
     });   
+</script>
+<!--富文本编辑器-->
+<script>
+    $("#rtf-editor").Editor();
 </script>
 </body>
 
