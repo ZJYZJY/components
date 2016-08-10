@@ -27,17 +27,25 @@
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>-->
     <script src="./js/toastr.min.js"></script>
     <!-- 统计表格插件 -->
-    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <!--<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>-->
     <script src="./js/highcharts.js"></script>
     <!-- 文件上传插件 -->
     <script src="./js/stream-v1.js"></script>
     <!-- 文件树控件 -->
     <script src="./js/bootstrap-treeview.min.js"></script>
+    <!--右键上下文菜单-->
+    <!--<script src="./js/jquery.contextify.min.js"></script>-->
+    <script src="./js/BootstrapMenu.min.js"></script>
     
     <script src="./js/main.js"></script>
 
     <style>
-
+        /*html{
+            font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+        }
+        .frame .image:hover{
+            cursor: pointer;
+        }*/
     </style>
 </head>
 
@@ -326,6 +334,7 @@
 <!--</div>-->
 <!--模态框 end -->
 
+<!--统计图表-->
 <script>
     // 初始化图表
     var chart = new Highcharts.Chart({
@@ -405,6 +414,7 @@
         chart.redraw();
     }, 4500);
 </script>
+<!--文件上传-->
 <script>
     // 详细参考README.md
     var config = {
@@ -443,6 +453,7 @@
     };
     var _t = new Stream(config);
 </script>
+<!--文件树-->
 <script>
     // 初始化树控件
     var defaultData = [
@@ -612,6 +623,7 @@
         color: "#2b2b2b"
     });
 </script>
+<!--视图切换-->
 <script>
     // 视图类型切换
     $('#header button').on('click',function(){
@@ -634,6 +646,26 @@
         $(this).find('.image').css({ 'background-image': 'url('+images[Math.floor(Math.random()*images.length)]+')' });
         $('.description').text('这里可以添加描述信息。');
     });
+</script>
+<script>
+    var menu = new BootstrapMenu('.frame', {
+        actions: [{
+            name: 'Action',
+            onClick: function() {
+                toastr.info('You click the "Action".');
+            }
+        }, {
+            name: 'Another action',
+            onClick: function() {
+                toastr.info('You click the "Another action".');
+            }
+        }, {
+            name: 'A third action',
+            onClick: function() {
+                toastr.info('You click the "A third action".');
+            }
+        }]
+    });   
 </script>
 </body>
 

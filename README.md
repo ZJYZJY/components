@@ -1,18 +1,18 @@
-# 需求完成情况
+# 功能列表
 
-## 需求列表
+* [导航栏](#导航栏)
+* [列表/图标](#列表/图标)
+* [树](#树)
+* [统计图表](#统计图表)
+* [消息，自动更新消息数量](#消息)
+* [弹出菜单](#弹出菜单)
+* [自动提示框，不需要交互响应](#提示框)
+* [弹出窗口浏览](#浮动窗口浏览)
+* [文件批量上传](#文件批量上传)
+* [收发邮件，富文本编辑器](#富文本编辑器)
 
-* #### ~~导航栏~~
-* #### ~~列表/图标~~
-* #### ~~树~~
-* #### ~~统计图表~~
-* #### ~~消息，自动更新消息数量~~
-* #### 弹出菜单
-* #### ~~自动提示框，不需要交互响应~~
-* #### ~~弹出窗口浏览~~
-* #### ~~大文件批量上传~~
-* #### 收发邮件，富文本编辑器
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 ### 导航栏
 
 方案：Bootstrap
@@ -160,9 +160,36 @@ var chart = new Highcharts.Chart({
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 弹出菜单
 
-方案：
+方案：[bootstrap-menu](https://github.com/dgoguerra/bootstrap-menu)
+
+```javascript
+<script src="./js/BootstrapMenu.min.js"></script>
+```
+应用举例：
+```javascript
+var menu = new BootstrapMenu('#button', {
+  actions: [{
+      name: 'Action',
+      onClick: function() {
+        // run when the action is clicked
+      }
+    }, {
+      name: 'Another action',
+      onClick: function() {
+        // run when the action is clicked
+      }
+    }, {
+      name: 'A third action',
+      onClick: function() {
+        // run when the action is clicked
+      }
+  }]
+});   
+```
 
 效果：
+
+![菜单](./assets/context-menu.PNG)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 提示框
 
