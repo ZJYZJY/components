@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Components!</title>
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://libs.useso.com/js/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+    <!-- 用于list-grid中的图标，与bootstrap有些冲突 -->
+    <!--<link href="./css/icons.css" rel="stylesheet">-->
+
     <!--<link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest /toastr.min.css" rel="stylesheet">-->
     <!-- 本地备用css资源 -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -15,18 +19,21 @@
     <link href="./css/main.css" rel="stylesheet">
 
     <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <!--提示信息插件-->
+    <!-- 提示信息插件 -->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>-->
     <script src="./js/toastr.min.js"></script>
-    <!--统计表格插件-->
+    <!-- 统计表格插件 -->
     <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <script src="./js/highcharts.js"></script>
-
     <!-- 文件上传插件 -->
     <script src="./js/stream-v1.js"></script>
+    <!-- 文件树控件 -->
+    <script src="./js/bootstrap-treeview.min.js"></script>
+    
     <script src="./js/main.js"></script>
 
     <style>
@@ -151,11 +158,10 @@
                 </div><br><br>
                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">悬浮窗
                 </button>
-            </div>
+            </div><br>
+            <div class="tree-view"></div>
         </div>
         <div class="col-sm-9 col-xs-12">
-            <!--统计图表-->
-            <!--<div id="con" width="400px" height="400px"></div>-->
             <div>
                 <div id="i_select_files">
                 </div>
@@ -167,12 +173,136 @@
                     <button class="btn btn-default" onclick="javascript:_t.stop();">暂停上传</button>
                     <button class="btn btn-danger" onclick="javascript:_t.cancel();">取消</button>
                 </div><br><br>
-                <!-- <button class="btn btn-primary" onclick="javascript:_t.disable();">禁用文件选择</button>
-                <button class="btn btn-primary" onclick="javascript:_t.enable();">启用文件选择</button> -->
-
-                <!-- <br> Messages: -->
-                <!-- <div id="i_stream_message_container" class="stream-main-upload-box" style="overflow: auto;height:200px;"> -->
             </div>
+            <main id='container' style="border: 1px solid #ccc;padding: 5px;">
+                <header id='header'>
+                    <span>视图:</span>
+                    <div class="btn-group">
+                        <button class='view-grid btn btn-default active'><span class="glyphicon glyphicon-th"></span></button>
+                        <button class='view-list btn btn-default'><span class="glyphicon glyphicon-th-list"></span></button>
+                    </div>
+                </header>
+                <ol class='grid' id='frame' style="height: 500px;overflow:scroll;margin:5px">
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <div class='shares'>
+                                <!--使用bootstrap图标-->
+                                <span class='glyphicon glyphicon-inbox'></span>
+                                <span class='glyphicon glyphicon-trash'></span>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class='frame'>
+                        <div class='inset'>
+                            <div class='image'></div>
+                            <div class='info'>
+                            <div class='title'>Lorem Ipsum</div>
+                            <div class='description'></div>
+                            <!--<div class='shares'>
+                                <div class='icon-lik likes'></div>
+                                <div class='icon-ask comments'></div>
+                            </div>-->
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </main>
         </div>
     </div>
 </div>
@@ -278,19 +408,19 @@
 <script>
     // 详细参考README.md
     var config = {
-        browseFileId: "i_select_files", 
+        browseFileId: "i_select_files",
         browseFileBtn: "<div class='btn btn-default'>请选择文件</div>",
         dragAndDropArea: "i_select_files", 
-        dragAndDropTips: "<span>把文件(文件夹)拖拽到这里</span>", 
+        dragAndDropTips: "<span>把文件(文件夹)拖拽到这里</span>",
         filesQueueId: "i_stream_files_queue",
-        filesQueueHeight: 150, 
-        multipleFiles: true, 
-        autoUploading: false, 
-        autoRemoveCompleted: true, 
+        filesQueueHeight: 150,
+        multipleFiles: true,
+        autoUploading: false,
+        autoRemoveCompleted: true,
         swfURL: "swf/FlashUploader.swf",
-        tokenURL: "php/upload.php?action=tk", 
-        frmUploadURL: "php/upload.php?action=fd;", 
-        uploadURL: "php/upload.php?action=up", 
+        tokenURL: "php/upload.php?action=tk",
+        frmUploadURL: "php/upload.php?action=fd;",
+        uploadURL: "php/upload.php?action=up",
 
         onMaxSizeExceed: function (size, limited, name) {
             toastr.error("文件大小超出限制！");
@@ -312,6 +442,198 @@
         }
     };
     var _t = new Stream(config);
+</script>
+<script>
+    // 初始化树控件
+    var defaultData = [
+    {
+        text: "Parent 1",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close",
+        nodes: [
+        {
+            text: "Child 1",
+            selectable: false,
+            state: {expanded: true},
+            icon: "glyphicon glyphicon-folder-close",
+            nodes: [
+            {
+                text: "Grandchild 1",
+                icon: "glyphicon glyphicon-file",
+                state: {
+                    selected: true
+                }
+            },
+            {
+                text: "Grandchild 2",
+                icon: "glyphicon glyphicon-file"
+            }
+            ]
+        },
+        {
+            text: "Child 2",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close"
+        }
+        ]
+    },
+    {
+        text: "Parent 2",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 3",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 4",
+        selectable: false,
+        state: {expanded: false},
+        icon: "glyphicon glyphicon-folder-close",
+        nodes: [
+        {
+            text: "Child 1",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close",
+            nodes: [
+            {
+                text: "Grandchild 1",
+                icon: "glyphicon glyphicon-file"
+            },
+            {
+                text: "Grandchild 2",
+                icon: "glyphicon glyphicon-file"
+            }
+            ]
+        },
+        {
+            text: "Child 2",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close"
+        }
+        ]
+    },
+    {
+        text: "Parent 5",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 6",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 7",
+        selectable: false,
+        state: {expanded: false},
+        icon: "glyphicon glyphicon-folder-close",
+        nodes: [
+        {
+            text: "Child 1",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close",
+            nodes: [
+            {
+                text: "Grandchild 1",
+                icon: "glyphicon glyphicon-file"
+            },
+            {
+                text: "Grandchild 2",
+                icon: "glyphicon glyphicon-file"
+            }
+            ]
+        },
+        {
+            text: "Child 2",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close"
+        }
+        ]
+    },
+    {
+        text: "Parent 8",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 9",
+        selectable: false,
+        state: {expanded: false},
+        icon: "glyphicon glyphicon-folder-close",
+        nodes: [
+        {
+            text: "Child 1",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close",
+            nodes: [
+            {
+                text: "Grandchild 1",
+                icon: "glyphicon glyphicon-file"
+            },
+            {
+                text: "Grandchild 2",
+                icon: "glyphicon glyphicon-file"
+            }
+            ]
+        },
+        {
+            text: "Child 2",
+            selectable: false,
+            icon: "glyphicon glyphicon-folder-close"
+        }
+        ]
+    },
+    {
+        text: "Parent 10",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 11",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 12",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    },
+    {
+        text: "Parent 13",
+        selectable: false,
+        icon: "glyphicon glyphicon-folder-close"
+    }
+    ];                  
+    $(".tree-view").treeview({
+        data: defaultData,
+        color: "#2b2b2b"
+    });
+</script>
+<script>
+    // 视图类型切换
+    $('#header button').on('click',function(){
+        if ( $(this).hasClass('view-grid') ) {
+            $('#frame').removeClass('list').addClass('grid');
+            if( !$(this).hasClass('active') ) {
+                $(this).addClass('active');
+                $(this).next().removeClass('active');
+            }
+        }else if ( $(this).hasClass('view-list') ) {
+            $('#frame').removeClass('grid').addClass('list');
+            if( !$(this).hasClass('active') ) {
+                $(this).addClass('active');
+                $(this).prev().removeClass('active');
+            }
+        }
+    });
+    $('.frame').each(function(){
+        var images = ['./images/1.jpg','./images/2.jpg','./images/3.jpg','./images/4.jpg','./images/5.jpg','./images/6.jpg'];
+        $(this).find('.image').css({ 'background-image': 'url('+images[Math.floor(Math.random()*images.length)]+')' });
+        $('.description').text('这里可以添加描述信息。');
+    });
 </script>
 </body>
 

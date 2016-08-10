@@ -7,25 +7,26 @@ function updateData(_this) {
 }
 
 function Message(_this, action) {
-  var num = $(_this).parent().parent().children('.message').children('.badge').text();
+  var badge = $(_this).parent().parent().children('.message').children('.badge');
+  var num = badge.text();
   switch(action) {
     case 0:
       if(num == "") {
-        $(_this).parent().parent().children('.message').children('.badge').text("1");
+        badge.text("1");
       }else{
-        $(_this).parent().parent().children('.message').children('.badge').text((parseInt(num) + 1).toString());
+        badge.text((parseInt(num) + 1).toString());
       }
       break;
     case 1:
       if(parseInt(num) > 1) {
-        $(_this).parent().parent().children('.message').children('.badge').text((parseInt(num) - 1).toString());
+        badge.text((parseInt(num) - 1).toString());
       }else {
-        $(_this).parent().parent().children('.message').children('.badge').text("");
+        badge.text("");
       }
       break;
     default:
       break;
   }
-  if(num != "")
+  if(num != "" || (num == "" && action == 0))
     toastr.info('消息数量已更新。')
 }

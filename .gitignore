@@ -24,10 +24,11 @@ build/Release
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 
+# 用户上传产生的文件
+files/*
+tokens/*
+#*.jpg
+
 LocalServer.py
 upload.html
 /.idea/*
-_book/
-book.pdf
-book.epub
-book.mobi

@@ -1,18 +1,18 @@
 # 需求完成情况
 
-### 需求列表
+## 需求列表
 
-* ~~导航栏~~
-* 列表/图标
-* 树
-* ~~统计图表~~
-* ~~消息，自动更新消息数量~~
-* 弹出菜单
-* ~~自动提示框，不需要交互响应~~
-* ~~弹出窗口浏览~~
-* ~~大文件批量上传~~
-* 收发邮件，富文本编辑器
-
+* #### ~~导航栏~~
+* #### ~~列表/图标~~
+* #### ~~树~~
+* #### ~~统计图表~~
+* #### ~~消息，自动更新消息数量~~
+* #### 弹出菜单
+* #### ~~自动提示框，不需要交互响应~~
+* #### ~~弹出窗口浏览~~
+* #### ~~大文件批量上传~~
+* #### 收发邮件，富文本编辑器
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 导航栏
 
 方案：Bootstrap
@@ -30,19 +30,73 @@
 
 效果：
 ![导航栏](./assets/nav.PNG)
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 列表/图标
 
-方案：
+方案：[jQueryUI](http://www.htmleaf.com/jQuery/Layout-Interface/20141122562.html)
+
+引入jQuery和jQuery UI文件：
+```javascript
+<link rel='stylesheet' href='http://libs.useso.com/js/jqueryui/1.10.4/css/jquery-ui.min.css'>
+<script src='http://libs.useso.com/js/jquery/1.11.0/jquery.min.js'></script>
+<script src='http://libs.useso.com/js/jqueryui/1.10.4/jquery-ui.min.js'></script>
+```
+```javascript
+<main id='container'>
+  <header id='header'>
+    <span>View:</span>
+    <button class='view-list'>List</button>
+    <button class='view-grid'>Grid</button>
+  </header>
+  <ol class='grid' id='frame'>
+    <!-- 每一个frame代表一个文件 -->
+    <li class='frame'>
+      <div class='inset'>
+        <div class='image'></div>
+        <div class='info'>
+          <div class='title'>Lorem Ipsum</div>
+          <div class='description'></div>
+          <div class='shares'>
+            <div class='icon-lik likes'></div>
+            <div class='icon-ask comments'></div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  ......
+</main>
+```
 
 效果：
 
+![缩略图](./assets/gridview.PNG)
+![列表](./assets/listview.PNG)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 树
 
-方案：
+方案：[bootstrap-treeview](http://www.htmleaf.com/jQuery/Menu-Navigation/201502141379.html)
 
+```javascript
+<!-- Required Stylesheets -->
+<link href="./css/bootstrap.css" rel="stylesheet">
+ 
+<!-- Required Javascript -->
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap-treeview.js"></script>
+```
+设置控件容器：
+```javascript
+<div id="tree"></div>  
+```
+最基本的调用方法（详细见参考链接）：
+```javascript
+$('#tree').treeview({data: defaultData});
+```
 效果：
 
+![文件树](./assets/treeview.PNG)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 统计图表
 
 方案：[Highcharts](http://www.hcharts.cn/api/index.php)
@@ -50,12 +104,14 @@
 ```javascript
 // 引入js文件
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
-
+```
+初始化图表：
+```javascript
 var chart = new Highcharts.Chart({
 
  chart: {
-   renderTo: 'con', // 图标渲染的节点
-   type: 'column'
+   renderTo: 'con', // 图表渲染的节点id
+   type: 'column'   // 图表的类型
  },
  title: {
    // 副标题
@@ -70,7 +126,7 @@ var chart = new Highcharts.Chart({
    // 纵坐标参数
  }
  tooltip: {
-   // 鼠标划过图表时的参数
+   // 鼠标划过图表时的提示信息
  },
  plotOptions: {
    // 其他样式设置
@@ -91,7 +147,7 @@ var chart = new Highcharts.Chart({
 效果：
 
 ![统计图表](./assets/chart.PNG)
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 消息
 
 方案：bootstrap &gt; badge
@@ -101,13 +157,13 @@ var chart = new Highcharts.Chart({
 ```
 
 效果：![消息](./assets/messages.PNG)
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 弹出菜单
 
 方案：
 
 效果：
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 提示框
 
 方案：[Toastr](https://github.com/CodeSeven/toastr)
@@ -135,7 +191,7 @@ toastr.clear()
 效果：
 
 ![提示框](./assets/toastr.PNG)
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 浮动窗口浏览
 
 方案：bootstrap &gt; modal
@@ -164,7 +220,7 @@ toastr.clear()
 效果：
 
 ![浮动窗](./assets/modal.PNG)
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 文件批量上传
 
 方案：[Stream上传插件](http://www.twinkling.cn/)
@@ -183,7 +239,7 @@ toastr.clear()
     var config = {
         browseFileId: "i_select_files", /** 选择文件的ID, 默认: i_select_files */
         browseFileBtn: "<div class='btn btn-default'>请选择文件</div>", /** 显示选择文件的样式, 默认: `<div>请选择文件</div>` */
-        dragAndDropArea: "i_select_files", /** 拖拽上传区域，Id（字符类型"i_select_files"）或者DOM对象, 默认: `i_select_files` */
+        dragAndDropArea: "i_select_files", /** 拖拽上传区域，Id（字符类型"i_select_files"）或者DOM对象,取消该项可不设置拖拽区域,默认: `i_select_files` */
         dragAndDropTips: "<span>把文件(文件夹)拖拽到这里</span>", /** 拖拽提示, 默认: `<span>把文件(文件夹)拖拽到这里</span>` */
         filesQueueId: "i_stream_files_queue", /** 文件上传容器的ID, 默认: i_stream_files_queue */
         filesQueueHeight: 150, /** 文件上传容器的高度（px）, 默认: 450 */
@@ -234,7 +290,7 @@ toastr.clear()
 效果：
 
 ![上传文件](./assets/upload.PNG)
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ### 富文本编辑器 
 
 方案：[UEditor](http://fex.baidu.com/ueditor/)
